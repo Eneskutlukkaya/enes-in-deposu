@@ -1,30 +1,39 @@
-﻿using System;
+﻿using GameProject.Concrete;
+using GameProject.Entities;
+using System;
 
-namespace ClassMethodDemo
+namespace GameProject
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            Musteri musteri1 = new Musteri();
-            musteri1.Id = 1234 ;
-            musteri1.Name = "Nicola Tesla";
-            musteri1.Job = "Bilim insanı";
+            Campaign campaign1 = new Campaign();
+            campaign1.CampaignId = 1;
+            campaign1.CampaignName = "Happy New Year Campaign";
+            CampaignManager campaignManager = new CampaignManager();
+            campaignManager.create(campaign1);
+            
 
-            Musteri musteri2 = new Musteri();
-            musteri2.Id = 2345;
-            musteri2.Name = "Albert Einstein";
-            musteri2.Job = "Teorik Fizikçi";
+            Game game1 = new Game();
+            game1.GameName = "GTA6";
+            game1.GamePrice = 999;
+            GameManager gameManager = new GameManager();
+            gameManager.NewGame(game1);
 
-            Musteri musteri3 = new Musteri();
-            musteri3.Id = 4321;
-            musteri3.Name = "Bill Gates";
-            musteri3.Job = "İş Adamı";
+            Player player1 = new Player();
+            player1.FirstName = "TONY";
+            player1.LastName = "MONTANA";
+            player1.NationalId = "1";
+            player1.PlayerId = 2;
+            PlayerManager playerManager = new PlayerManager();
+            playerManager.Save(player1);
 
-            MusteriManager musteriManager = new MusteriManager();
-            musteriManager.add(musteri1);
-            musteriManager.list(musteri2);
-            musteriManager.delete(musteri3);
+            
+
+
+
 
 
         }
